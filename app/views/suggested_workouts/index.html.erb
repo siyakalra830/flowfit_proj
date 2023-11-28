@@ -1,0 +1,134 @@
+<div>
+  <div>
+    <h1>
+      List of all suggested workouts
+    </h1>
+  </div>
+</div>
+
+<hr>
+
+<div>
+  <div>
+    <h2>
+      Add a new suggested workout
+    </h2>
+
+    <form action="/insert_suggested_workout" method="post">
+      <div>
+        <label for="workout_type_box">
+          Workout type
+        </label>
+
+        <input type="text" id="workout_type_box" name="query_workout_type">
+      </div>
+
+      <div>
+        <label for="cycle_phase_box">
+          Cycle phase
+        </label>
+
+        <input type="text" id="cycle_phase_box" name="query_cycle_phase">
+      </div>
+
+      <div>
+        <label for="workout_desc_box">
+          Workout desc
+        </label>
+
+        <input type="text" id="workout_desc_box" name="query_workout_desc">
+      </div>
+
+      <div>
+        <label for="user_id_box">
+          User
+        </label>
+
+        <input type="text" id="user_id_box" name="query_user_id">
+      </div>
+
+      <button>
+        Create suggested workout
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
+<div>
+  <div>
+    <table border="1">
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          Workout type
+        </th>
+
+        <th>
+          Cycle phase
+        </th>
+
+        <th>
+          Workout desc
+        </th>
+
+        <th>
+          User
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @list_of_suggested_workouts.each do |a_suggested_workout| %>
+      <tr>
+        <td>
+          <%= a_suggested_workout.id %>
+        </td>
+
+        <td>
+          <%= a_suggested_workout.workout_type %>
+        </td>
+
+        <td>
+          <%= a_suggested_workout.cycle_phase %>
+        </td>
+
+        <td>
+          <%= a_suggested_workout.workout_desc %>
+        </td>
+
+        <td>
+          <%= a_suggested_workout.user_id %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(a_suggested_workout.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(a_suggested_workout.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/suggested_workouts/<%= a_suggested_workout.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>

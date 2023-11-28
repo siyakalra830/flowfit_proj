@@ -1,4 +1,23 @@
 Rails.application.routes.draw do
+  # Routes for the Suggested workout resource:
+
+  # CREATE
+  post("/insert_suggested_workout", { :controller => "suggested_workouts", :action => "create" })
+          
+  # READ
+  get("/suggested_workouts", { :controller => "suggested_workouts", :action => "index" })
+  
+  get("/suggested_workouts/:path_id", { :controller => "suggested_workouts", :action => "show" })
+  
+  # UPDATE
+  
+  post("/modify_suggested_workout/:path_id", { :controller => "suggested_workouts", :action => "update" })
+  
+  # DELETE
+  get("/delete_suggested_workout/:path_id", { :controller => "suggested_workouts", :action => "destroy" })
+
+  #------------------------------
+
   # Routes for the Workout resource:
 
   # CREATE

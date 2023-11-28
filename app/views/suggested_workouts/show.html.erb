@@ -1,0 +1,116 @@
+<div>
+  <div>
+    <h1>
+      Suggested workout #<%= @the_suggested_workout.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/suggested_workouts">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_suggested_workout/<%= @the_suggested_workout.id %>">
+          Delete suggested workout
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Workout type
+      </dt>
+      <dd>
+        <%= @the_suggested_workout.workout_type %>
+      </dd>
+
+      <dt>
+        Cycle phase
+      </dt>
+      <dd>
+        <%= @the_suggested_workout.cycle_phase %>
+      </dd>
+
+      <dt>
+        Workout desc
+      </dt>
+      <dd>
+        <%= @the_suggested_workout.workout_desc %>
+      </dd>
+
+      <dt>
+        User
+      </dt>
+      <dd>
+        <%= @the_suggested_workout.user_id %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_suggested_workout.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_suggested_workout.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit suggested workout
+    </h2>
+
+    <form action="/modify_suggested_workout/<%= @the_suggested_workout.id %>"  method="post" >
+      <div>
+        <label for="workout_type_box">
+          Workout type
+        </label>
+
+        <input type="text" id="workout_type_box" name="query_workout_type" value="<%= @the_suggested_workout.workout_type %>">
+      </div>
+
+      <div>
+        <label for="cycle_phase_box">
+          Cycle phase
+        </label>
+
+        <input type="text" id="cycle_phase_box" name="query_cycle_phase" value="<%= @the_suggested_workout.cycle_phase %>">
+      </div>
+
+      <div>
+        <label for="workout_desc_box">
+          Workout desc
+        </label>
+
+        <input type="text" id="workout_desc_box" name="query_workout_desc" value="<%= @the_suggested_workout.workout_desc %>">
+      </div>
+
+      <div>
+        <label for="user_id_box">
+          User
+        </label>
+
+        <input type="text" id="user_id_box" name="query_user_id" value="<%= @the_suggested_workout.user_id %>">
+      </div>
+
+      <button>
+        Update suggested workout
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
