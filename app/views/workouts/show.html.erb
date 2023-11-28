@@ -1,0 +1,101 @@
+<div>
+  <div>
+    <h1>
+      Workout #<%= @the_workout.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/workouts">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_workout/<%= @the_workout.id %>">
+          Delete workout
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Workout type
+      </dt>
+      <dd>
+        <%= @the_workout.workout_type %>
+      </dd>
+
+      <dt>
+        Workout length mins
+      </dt>
+      <dd>
+        <%= @the_workout.workout_length_mins %>
+      </dd>
+
+      <dt>
+        User
+      </dt>
+      <dd>
+        <%= @the_workout.user_id %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_workout.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_workout.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit workout
+    </h2>
+
+    <form action="/modify_workout/<%= @the_workout.id %>"  method="post" >
+      <div>
+        <label for="workout_type_box">
+          Workout type
+        </label>
+
+        <input type="text" id="workout_type_box" name="query_workout_type" value="<%= @the_workout.workout_type %>">
+      </div>
+
+      <div>
+        <label for="workout_length_mins_box">
+          Workout length mins
+        </label>
+
+        <input type="text" id="workout_length_mins_box" name="query_workout_length_mins" value="<%= @the_workout.workout_length_mins %>">
+      </div>
+
+      <div>
+        <label for="user_id_box">
+          User
+        </label>
+
+        <input type="text" id="user_id_box" name="query_user_id" value="<%= @the_workout.user_id %>">
+      </div>
+
+      <button>
+        Update workout
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
