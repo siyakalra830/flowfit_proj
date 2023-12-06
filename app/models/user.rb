@@ -10,6 +10,7 @@
 #  remember_created_at    :datetime
 #  reset_password_sent_at :datetime
 #  reset_password_token   :string
+#  username               :string
 #  workouts_count         :integer
 #  workouts_enjoyed       :string
 #  created_at             :datetime         not null
@@ -25,4 +26,8 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+
+  has_many  :workouts, class_name: "Workout", foreign_key: "user_id", dependent: :destroy
+
+  has_many  :suggested_workouts, class_name: "SuggestedWorkout", foreign_key: "user_id", dependent: :destroy
 end
