@@ -2,6 +2,14 @@ class UsersController < ApplicationController
   skip_before_action(:authenticate_user!, { :only => [:index] })
   
   def index
+    if current_user
+      @workouts = Workout.where({ :user_id => current_user.id })
+    else
+      # If there is no current_user, redirect to a login page or set @workouts to an empty array.
+      # Redirect example: redirect_to("/login")
+      # Or set @workouts to an empty array to avoid the error:
+      @workouts = []
+    end
     render({ :template => "users/profile" })
   end
 

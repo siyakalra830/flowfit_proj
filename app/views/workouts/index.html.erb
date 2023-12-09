@@ -32,11 +32,11 @@
       </div>
 
       <div>
-        <label for="user_id_box">
-          User
+        <label for="username_box">
+          Username
         </label>
 
-        <input type="text" id="user_id_box" name="query_user_id">
+        <input type="text" id="username_box" name="query_username" value="<%= @current_user.username %>" readonly>
       </div>
 
       <button>
@@ -61,10 +61,6 @@
 
         <th>
           Workout length mins
-        </th>
-
-        <th>
-          User
         </th>
 
         <th>
@@ -93,9 +89,6 @@
           <%= a_workout.workout_length_mins %>
         </td>
 
-        <td>
-          <%= a_workout.user_id %>
-        </td>
 
         <td>
           <%= time_ago_in_words(a_workout.created_at) %> ago

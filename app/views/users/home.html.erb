@@ -2,7 +2,7 @@
 
 <% if current_user.date_of_last_period %>
   <% days_since_last_period = (Date.today - current_user.date_of_last_period).to_i + 1 %>
-  <p>Today is Day <%= days_since_last_period %> of your cycle. Your next period is expected on <%= current_user.date_of_next_period %>.</p>
+  <h2>Today is Day <%= days_since_last_period %> of your cycle. Your next period is expected on <%= current_user.date_of_next_period %>.</h2>
 
   <% if days_since_last_period <= 7 %>
     <% cycle_phase = "Menstrual" %>
@@ -13,8 +13,87 @@
   <% else %>
     <% cycle_phase = "Luteal" %>
   <% end %>
-  <p>You are in the <%= cycle_phase %> phase of your cycle.</p>
+  <h2>You are in the <%= cycle_phase %> phase of your cycle.</h2>
 <% else %>
-  <p>Your last period date is not set.</p>
+  <h2>Your last period date is not set.</h2>
 <% end %>
 
+<% if cycle_phase == "Menstrual" %>
+  <h3>You may be feeling fatigued, cramps, lower back pain, bloating, and mood swings. In this phase, low impact workouts are best to do.</h3>
+  <h2>Suggested workouts</h2>
+  <ul>
+    <li>Cardio: <a href="https://www.youtube.com/watch?v=3SpPraOLJl4">Low Impact Cardio Workout</a></li>
+    <li>HIIT: <a href="https://www.youtube.com/watch?v=u3h_Yr40rhg">Low Impact HIIT Workout</a></li>
+    <li>Pilates: <a href="https://www.youtube.com/watch?v=szMREA1Eqd8">Low Impact Pilates Workout</a></li>
+    <li>Strength Training Full Body Workout: Low impact is key! Keep the same weight as normal and less reps, or lower weight and the same number of reps. Here is a sample routine:</li>
+    <ul>
+      <li>Dumbbell bench press (3x6-8)</li>
+      <li>Cable seated row (3x8)</li>
+      <li>Lat pulldowns (3x8)</li>
+      <li>Assisted pull-ups/dips (3x6)</li>
+      <li>Dumbbell lunges (3x8-10)</li>
+      <li>Bulgarian split squats (3x8)</li>
+      <li>Barbell Romanian deadlifts (3x6)</li>
+      <li>Goblet squats (3x8)</li>
+    </ul>
+  </ul>
+<% elsif cycle_phase = "Follicular" %>
+  <h3>This part of your cycle is linked with the highest energy levels you may feel and a happier mood. In this phase, it is better to do higher intensity workouts.</h3>
+  <h2>Suggested workouts</h2>
+  <ul>
+    <li>Cardio: <a href="https://www.youtube.com/watch?v=uyxOhWTln_s">High Impact Cardio Workout</a></li>
+    <li>HIIT: <a href="https://www.puregym.com/blog/four-20-minute-hiit-workouts/">High Impact HIIT Workout</a></li>
+    <li>Pilates: <a href="https://www.youtube.com/watch?v=9sTwmOL6f5M">Low Impact Pilates Workout</a></li>
+    <li>Strength Training Full Body Workout: Push yourself more! Try and increase weight with less reps or do more reps with the same weight. Here is a sample routine:</li>
+    <ul>
+      <li>Barbell bench press (3x6-8)</li>
+      <li>Dumbbell shoulder press (3x8)</li>
+      <li>Lat pulldowns (3x8)</li>
+      <li>Assisted pull-ups/dips (3x6)</li>
+      <li>Barbell back squats (3x6)</li>
+      <li>Bulgarian split squats (3x8)</li>
+      <li>Barbell Romanian deadlifts (3x6)</li>
+      <li>Sumo squats (3x8)</li>
+    </ul>
+  </ul>
+<% elsif cycle_phase = "Ovulation" %>
+  <h3>This part of your cycle is when the body experiences a surge in estrogen as it releases an egg from your ovaries. This is the perfect time to do resistance training, as you will have higher muscle strength and endurance.</h3>
+  <h2>Suggested workouts</h2>
+  <ul>
+    <li>Cardio: <a href="https://www.youtube.com/watch?v=LvOFFjfpmbo">Cardio Resistance Training Workout</a></li>
+    <li>HIIT: <a href="https://www.youtube.com/watch?v=d7HqY7--p2A">HIIT Resistance Workout</a></li>
+    <li>Pilates: <a href="https://www.youtube.com/watch?v=9kelSX3a3AQ">Pilates Resistance Workout</a></li>
+    <li>Strength Training Full Body Workout: Push yourself more! Try and increase weight with less reps or do more reps with the same weight. Here is a sample routine:</li>
+    <ul>
+      <li>Barbell bench press (3x6-8)</li>
+      <li>Dumbbell shoulder press (3x8)</li>
+      <li>Lat pulldowns (3x8)</li>
+      <li>Assisted pull-ups/dips (3x6)</li>
+      <li>Barbell back squats (3x6)</li>
+      <li>Bulgarian split squats (3x8)</li>
+      <li>Barbell Romanian deadlifts (3x6)</li>
+      <li>Sumo squats (3x8)</li>
+    </ul>
+  </ul>
+<% else %>
+  <h3>Your body is now preparing for your next period. You may feel a drop in your energy levels and mood, more food cravings, and you may not perform to your highest level during your workouts. Here, moderate intensity workouts are best.</h3>
+  <h2>Suggested workouts</h2>
+  <ul>
+    <li>Cardio: <a href="https://www.youtube.com/watch?v=qditvmztsfg">Moderate Intensity Cardio Workout</a></li>
+    <li>HIIT: <a href="https://www.youtube.com/watch?v=WxAkMuXERBE">Low Impact HIIT Workout</a></li>
+    <li>Pilates: <a href="https://www.youtube.com/watch?v=6wSbM7Oz7F0">Moderate Intensity Pilates Workout</a></li>
+    <li>Strength Training Full Body Workout: Moderate intensity is key! Keep the same weight as normal and less reps, or slightly lower weight and the same number of reps. Here is a sample routine:</li>
+    <ul>
+      <li>Dumbbell bench press (3x6-8)</li>
+      <li>Cable seated row (3x8)</li>
+      <li>Lat pulldowns (3x8)</li>
+      <li>Assisted pull-ups/dips (3x6)</li>
+      <li>Dumbbell lunges (3x8-10)</li>
+      <li>Bulgarian split squats (3x8)</li>
+      <li>Barbell Romanian deadlifts (3x6)</li>
+      <li>Goblet squats (3x8)</li>
+    </ul>
+  </ul>
+<% end %>
+
+<h2>Go add your workout for today in the 'Add a workout' tab, and go to your profile to see your completed workouts!</h2>

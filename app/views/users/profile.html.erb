@@ -4,32 +4,37 @@
 <ul>
   <li>Email: <%= current_user.email %></li>
   <li>Date of Last Period: <%= current_user.date_of_last_period %></li>
-  <li>Workouts Enjoyed: <%= current_user.workouts_enjoyed %></li>
+  <li>Next Period Expected On: <%= current_user.date_of_next_period %></li>
 </ul>
 
-<h2>Workouts Completed</h2>
+<h1>Completed Workouts</h1>
+
 <table border="1">
-  <tr>
-    <th>
-      Workout Type
-    </th>
-
-    <th>
-      Workout Length
-    </th>
-
-    <th>
-      Type of Workout
-    </th>
-
-    <th>
-      Created At
-    </th>
-
-    <th>
-      Updated At
-    </th>
-
-    <th></th>
-  </tr>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Workout Type</th>
+      <th>Duration</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @workouts.each do |workout| %>
+      <tr>
+        <td><%= workout.id %></td>
+        <td><%= workout.workout_type %></td>
+        <td><%= workout.workout_length_mins %></td>
+        <td>
+          <!-- Link to edit workout -->
+          <a href="/workouts/<%= workout.id %>/edit">Edit</a>
+          <!-- Link to delete workout -->
+          <a href="/workouts/<%= workout.id %>" data-method="delete" rel="nofollow">Delete</a>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
 </table>
+
+<% if @workouts.empty? %>
+  <p>No workouts found.</p>
+<% end %>

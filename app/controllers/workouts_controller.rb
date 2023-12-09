@@ -1,9 +1,7 @@
 class WorkoutsController < ApplicationController
   def index
-    matching_workouts = Workout.all
-
-    @list_of_workouts = matching_workouts.order({ :created_at => :desc })
-
+    # Retrieve all workouts for the current user
+    @list_of_workouts = Workout.where({ :user_id => current_user.id })
     render({ :template => "workouts/index" })
   end
 
@@ -21,7 +19,7 @@ class WorkoutsController < ApplicationController
     the_workout = Workout.new
     the_workout.workout_type = params.fetch("query_workout_type")
     the_workout.workout_length_mins = params.fetch("query_workout_length_mins")
-    the_workout.user_id = params.fetch("query_user_id")
+    the_workout.user_id = current_user.id
 
     if the_workout.valid?
       the_workout.save
@@ -37,7 +35,7 @@ class WorkoutsController < ApplicationController
 
     the_workout.workout_type = params.fetch("query_workout_type")
     the_workout.workout_length_mins = params.fetch("query_workout_length_mins")
-    the_workout.user_id = params.fetch("query_user_id")
+    the_workout.user_id = params.fetch("query_username")
 
     if the_workout.valid?
       the_workout.save
