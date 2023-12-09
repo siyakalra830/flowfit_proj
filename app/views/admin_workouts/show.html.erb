@@ -1,0 +1,101 @@
+<div>
+  <div>
+    <h1>
+      Admin workout #<%= @the_admin_workout.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/admin_workouts">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_admin_workout/<%= @the_admin_workout.id %>">
+          Delete admin workout
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Workout type
+      </dt>
+      <dd>
+        <%= @the_admin_workout.workout_type %>
+      </dd>
+
+      <dt>
+        Workout desc
+      </dt>
+      <dd>
+        <%= @the_admin_workout.workout_desc %>
+      </dd>
+
+      <dt>
+        Workout phase
+      </dt>
+      <dd>
+        <%= @the_admin_workout.workout_phase %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_admin_workout.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_admin_workout.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit admin workout
+    </h2>
+
+    <form action="/modify_admin_workout/<%= @the_admin_workout.id %>"  method="post" >
+      <div>
+        <label for="workout_type_box">
+          Workout type
+        </label>
+
+        <input type="text" id="workout_type_box" name="query_workout_type" value="<%= @the_admin_workout.workout_type %>">
+      </div>
+
+      <div>
+        <label for="workout_desc_box">
+          Workout desc
+        </label>
+
+        <input type="text" id="workout_desc_box" name="query_workout_desc" value="<%= @the_admin_workout.workout_desc %>">
+      </div>
+
+      <div>
+        <label for="workout_phase_box">
+          Workout phase
+        </label>
+
+        <input type="text" id="workout_phase_box" name="query_workout_phase" value="<%= @the_admin_workout.workout_phase %>">
+      </div>
+
+      <button>
+        Update admin workout
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>

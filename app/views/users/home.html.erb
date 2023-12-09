@@ -1,3 +1,20 @@
-<h1>Welcome, Siya!</h1>
+<h1>Welcome, <%= current_user.username %>!</h1>
 
+<% if current_user.date_of_last_period %>
+  <% days_since_last_period = (Date.today - current_user.date_of_last_period).to_i + 1 %>
+  <p>Today is Day <%= days_since_last_period %> of your cycle. Your next period is expected on <%= current_user.date_of_next_period %>.</p>
+
+  <% if days_since_last_period <= 7 %>
+    <% cycle_phase = "Menstrual" %>
+  <% elsif days_since_last_period > 7 && days_since_last_period <= 14 %>
+    <% cycle_phase = "Follicular" %>
+  <% elsif days_since_last_period > 14 && days_since_last_period <= 16 %>
+    <% cycle_phase = "Ovulation" %>
+  <% else %>
+    <% cycle_phase = "Luteal" %>
+  <% end %>
+  <p>You are in the <%= cycle_phase %> phase of your cycle.</p>
+<% else %>
+  <p>Your last period date is not set.</p>
+<% end %>
 

@@ -1,4 +1,23 @@
 Rails.application.routes.draw do
+  # Routes for the Admin workout resource:
+
+  # CREATE
+  post("/insert_admin_workout", { :controller => "admin_workouts", :action => "create" })
+          
+  # READ
+  get("/admin_workouts", { :controller => "admin_workouts", :action => "index" })
+  
+  get("/admin_workouts/:path_id", { :controller => "admin_workouts", :action => "show" })
+  
+  # UPDATE
+  
+  post("/modify_admin_workout/:path_id", { :controller => "admin_workouts", :action => "update" })
+  
+  # DELETE
+  get("/delete_admin_workout/:path_id", { :controller => "admin_workouts", :action => "destroy" })
+
+  #------------------------------
+
   # Routes for the Suggested workout resource:
 
   # CREATE
@@ -41,6 +60,8 @@ Rails.application.routes.draw do
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   get("/profile", { :controller => "users", :action => "index" })
+
+  post("/users/sign_up", { :controller => "users", :action => 'create' })
   
   # Defines the root path route ("/")
   root "users#home"
