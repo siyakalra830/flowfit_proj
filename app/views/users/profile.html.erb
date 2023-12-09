@@ -15,7 +15,6 @@
       <th>ID</th>
       <th>Workout Type</th>
       <th>Duration</th>
-      <th>Actions</th>
     </tr>
   </thead>
   <tbody>
@@ -24,12 +23,6 @@
         <td><%= workout.id %></td>
         <td><%= workout.workout_type %></td>
         <td><%= workout.workout_length_mins %></td>
-        <td>
-          <!-- Link to edit workout -->
-          <a href="/workouts/<%= workout.id %>/edit">Edit</a>
-          <!-- Link to delete workout -->
-          <a href="/workouts/<%= workout.id %>" data-method="delete" rel="nofollow">Delete</a>
-        </td>
       </tr>
     <% end %>
   </tbody>
