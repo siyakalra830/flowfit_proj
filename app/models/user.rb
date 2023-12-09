@@ -31,7 +31,8 @@ class User < ApplicationRecord
   
   validates :email, :presence => true
   validates :password, :presence => true
-  validates :date_of_last_period, presence: true
+  validates :date_of_last_period, :presence => true
+  validates :username, :presence => true
 
   has_many  :workouts, class_name: "Workout", foreign_key: "user_id", dependent: :destroy
 

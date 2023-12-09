@@ -31,6 +31,8 @@ Rails.application.routes.draw do
   # UPDATE
   
   post("/modify_suggested_workout/:path_id", { :controller => "suggested_workouts", :action => "update" })
+
+
   
   # DELETE
   get("/delete_suggested_workout/:path_id", { :controller => "suggested_workouts", :action => "destroy" })
@@ -62,6 +64,8 @@ Rails.application.routes.draw do
   get("/profile", { :controller => "users", :action => "index" })
 
   post("/users/sign_up", { :controller => "users", :action => 'create' })
+
+
   
   # Defines the root path route ("/")
   root "users#home"
