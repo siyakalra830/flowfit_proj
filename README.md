@@ -1,12 +1,6 @@
-# Rails Template
+# FlowFit
 
-This is a base Ruby on Rails repository configured for learning with Codespaces (and Gitpod).
-
-- Ruby version: `3.2.1`
-- Rails version: `7.0.4.3`
-
-
-We've added additional Ruby gems and other software that aren't automatically available in a new Rails app.
+Web application that provides personalized, user-specfic workout recommendations for women based on the progression of their menstrual cycle.
 
 ### Additional gems:
 
